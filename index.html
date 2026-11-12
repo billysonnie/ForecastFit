@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ForecastFit - WFM Forecast Accuracy Tracker</title>
+<meta name="description" content="ForecastFit tracks workforce management forecast accuracy: WAPE, bias, and worst intervals. Demo with fictional data only.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <h1>ForecastFit</h1>
+  <p class="tagline">Workforce management forecast accuracy, at a glance.</p>
+  <p class="demo-note">Demo with fictional data - not from any real contact center, employer, or person.</p>
+</header>
+
+<main>
+  <section class="scoreboard" aria-label="Weekly summary">
+    <div class="score">
+      <span class="score-value" id="weekWape">-</span>
+      <span class="score-label">weekly WAPE (lower is better)</span>
+    </div>
+    <div class="score">
+      <span class="score-value" id="weekBias">-</span>
+      <span class="score-label" id="weekBiasLabel">weekly bias</span>
+    </div>
+  </section>
+
+  <section aria-label="Daily scores">
+    <div id="dayScores" class="chips"></div>
+  </section>
+
+  <section id="charts" aria-label="Forecast vs actual by day"></section>
+
+  <section class="card" aria-label="Worst intervals">
+    <h2>Biggest misses this week</h2>
+    <table id="worstTable">
+      <thead>
+        <tr><th>Day</th><th>Interval</th><th>Forecast</th><th>Actual</th><th>Error</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <section class="card legend" aria-label="How to read this">
+    <h2>How to read this</h2>
+    <p><span class="swatch actual"></span> Actual contact volume &nbsp; <span class="swatch forecast"></span> Forecast</p>
+    <p><span class="swatch under"></span> Red gaps are under-forecasts (understaffing risk) &nbsp; <span class="swatch over"></span> Blue gaps are over-forecasts (overstaffing cost)</p>
+    <p>WAPE = total absolute error / total actual volume. Bias shows whether the week ran high or low overall.</p>
+  </section>
+</main>
+
+<footer>
+  <p>ForecastFit demo. Data is fictional and generated in the browser. See the README for model limitations.</p>
+</footer>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
